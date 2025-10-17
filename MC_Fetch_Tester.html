@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>MC Invigilation – Fetch Tester</title>
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
+  .ok { background: rgba(0,160,0,.08); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(0,160,0,.3) }
+  .bad { background: rgba(200,0,0,.06); padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(200,0,0,.35) }
+  code { background: #f6f6f6; padding: 2px 6px; border-radius: 6px; }
+  .hint { color: #555; }
+</style>
+</head>
+<body>
+<h1>MC Invigilation – Fetch Tester (v1)</h1>
+<p>Put this file in the same GitHub Pages folder as your spreadsheets. Open it in the browser and read the results below.</p>
+<ul>
+  <li>Expected files in <strong>the same folder</strong>: <code>roster.xlsx</code>, <code>timetable_exam.xlsx</code></li>
+  <li>If a test is red, click the file link shown to confirm if the URL 404s.</li>
+</ul>
+<div id="results"></div>
+
+<script>
+async function test(name) {
+  const url = './' + name;
+  const box = document.createElement('div');
+  box.innerHTML = '<h2>' + name + '</h2><div class="hint">URL: <a href="'+url+'" target="_blank">'+url+'</a></div>';
+  document.getElementById('results').appendChild(box);
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const buf = await res.arrayBuffer();
+    const size = buf.byteLength;
+    const ok = document.createElement('div');
+    ok.className = 'ok';
+    ok.textContent = 'OK: fetched ' + size + ' bytes';
+    box.appendChild(ok);
+  } catch (e) {
+    const bad = document.createElement('div');
+    bad.className = 'bad';
+    bad.innerHTML = 'NOT FOUND or blocked: ' + (e.message || e) + '<div class="hint">Click the URL above; if it 404s, the file is not in the same folder or the name/case is different.</div>';
+    box.appendChild(bad);
+  }
+}
+
+(async () => {
+  await test('roster.xlsx');
+  await test('timetable_exam.xlsx');
+})();
+</script>
+</body>
+</html>
