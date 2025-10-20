@@ -1,0 +1,2447 @@
+<!DOCTYPE html><html lang="en" data-theme="midnight"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form 6 Invigilation Countdown · Methodist College</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-main: #0b111a;
+      --bg-panel: rgba(18, 24, 33, 0.92);
+      --text-primary: #f0f6fc;
+      --text-secondary: #8b949e;
+      --accent: #58a6ff;
+      --accent-alt: #7d9bff;
+      --warning: #f7d774;
+      --danger: #ff7b72;
+      --success: #3fb950;
+      --panel-border: rgba(255, 255, 255, 0.05);
+      --header-gradient: linear-gradient(135deg, rgba(88, 101, 242, 0.58), rgba(11, 17, 26, 0.92));
+      --panel-blur: rgba(11, 16, 24, 0.8);
+      --announcement-bg: rgba(88, 101, 242, 0.16);
+      --announcement-border: rgba(88, 101, 242, 0.32);
+      --schedule-bg: rgba(20, 28, 42, 0.65);
+      --schedule-item-bg: rgba(88, 101, 242, 0.12);
+      --schedule-item-hover: rgba(88, 101, 242, 0.22);
+      --schedule-item-active: rgba(88, 101, 242, 0.32);
+      --button-primary: linear-gradient(135deg, #58a6ff, #7d9bff);
+      --button-danger: linear-gradient(135deg, #ff7b72, #ff9d8f);
+      --button-ghost: rgba(240, 246, 252, 0.08);
+      --shadow: 0 18px 45px rgba(2, 5, 12, 0.55);
+      --progress-track: rgba(88, 101, 242, 0.18);
+      --modal-overlay: rgba(7, 12, 23, 0.78);
+      --file-loader-bg: rgba(255, 255, 255, 0.05);
+      --file-loader-border: rgba(255, 255, 255, 0.15);
+      --select-focus-border: rgba(88, 101, 242, 0.6);
+      --select-focus-bg: rgba(88, 101, 242, 0.14);
+      --secondary-btn-bg: rgba(240, 246, 252, 0.92);
+      --secondary-btn-color: #0d1117;
+      --primary-btn-text: #0d1117;
+      --file-upload-button-text: #0d1117;
+      --timer-warning-color: #ffb347;
+      --timer-danger-color: #ff6b6b;
+      --outer-padding: clamp(0.65rem, 0.8vw, 1.6rem);
+      font-size: clamp(16px, 1.15vw, 19px);
+    }
+
+    [data-theme="dawn"] {
+      color-scheme: light;
+      --bg-main: #f6f3ff;
+      --bg-panel: rgba(255, 255, 255, 0.92);
+      --text-primary: #1f2330;
+      --text-secondary: #5c647a;
+      --accent: #7b61ff;
+      --accent-alt: #9a84ff;
+      --warning: #b8860b;
+      --danger: #d13d47;
+      --success: #2c8a4d;
+      --panel-border: rgba(31, 35, 48, 0.08);
+      --header-gradient: linear-gradient(135deg, rgba(123, 97, 255, 0.32), rgba(255, 255, 255, 0.95));
+      --panel-blur: rgba(255, 255, 255, 0.85);
+      --announcement-bg: rgba(123, 97, 255, 0.14);
+      --announcement-border: rgba(123, 97, 255, 0.26);
+      --schedule-bg: rgba(244, 239, 255, 0.78);
+      --schedule-item-bg: rgba(123, 97, 255, 0.1);
+      --schedule-item-hover: rgba(123, 97, 255, 0.18);
+      --schedule-item-active: rgba(123, 97, 255, 0.28);
+      --button-primary: linear-gradient(135deg, #7b61ff, #9f87ff);
+      --button-danger: linear-gradient(135deg, #f06573, #f38b8f);
+      --button-ghost: rgba(31, 35, 48, 0.08);
+      --shadow: 0 14px 32px rgba(79, 55, 180, 0.18);
+      --progress-track: rgba(123, 97, 255, 0.18);
+      --modal-overlay: rgba(31, 35, 48, 0.58);
+      --file-loader-bg: rgba(31, 35, 48, 0.06);
+      --file-loader-border: rgba(31, 35, 48, 0.16);
+      --select-focus-border: rgba(123, 97, 255, 0.6);
+      --select-focus-bg: rgba(123, 97, 255, 0.16);
+      --secondary-btn-bg: rgba(31, 35, 48, 0.12);
+      --secondary-btn-color: #1f2330;
+      --primary-btn-text: #ffffff;
+      --file-upload-button-text: #ffffff;
+      --timer-warning-color: #ff8a3d;
+      --timer-danger-color: #ff3658;
+    }
+
+    [data-theme="emerald"] {
+      color-scheme: dark;
+      --bg-main: #041710;
+      --bg-panel: rgba(10, 30, 23, 0.92);
+      --text-primary: #e8fff5;
+      --text-secondary: #7fc3a7;
+      --accent: #4ad3a4;
+      --accent-alt: #45f7c0;
+      --warning: #ffd166;
+      --danger: #f86565;
+      --success: #45f7c0;
+      --panel-border: rgba(74, 211, 164, 0.22);
+      --header-gradient: linear-gradient(135deg, rgba(69, 247, 192, 0.28), rgba(4, 23, 16, 0.92));
+      --panel-blur: rgba(4, 23, 16, 0.85);
+      --announcement-bg: rgba(69, 247, 192, 0.16);
+      --announcement-border: rgba(69, 247, 192, 0.3);
+      --schedule-bg: rgba(14, 40, 30, 0.74);
+      --schedule-item-bg: rgba(69, 247, 192, 0.14);
+      --schedule-item-hover: rgba(69, 247, 192, 0.24);
+      --schedule-item-active: rgba(69, 247, 192, 0.32);
+      --button-primary: linear-gradient(135deg, #4ad3a4, #45f7c0);
+      --button-danger: linear-gradient(135deg, #ff8a80, #ff6b6b);
+      --button-ghost: rgba(232, 255, 245, 0.1);
+      --shadow: 0 18px 40px rgba(6, 32, 24, 0.6);
+      --progress-track: rgba(69, 247, 192, 0.22);
+      --modal-overlay: rgba(4, 23, 16, 0.78);
+      --file-loader-bg: rgba(69, 247, 192, 0.08);
+      --file-loader-border: rgba(69, 247, 192, 0.26);
+      --select-focus-border: rgba(69, 247, 192, 0.6);
+      --select-focus-bg: rgba(69, 247, 192, 0.16);
+      --secondary-btn-bg: rgba(232, 255, 245, 0.88);
+      --secondary-btn-color: #053021;
+      --primary-btn-text: #012017;
+      --file-upload-button-text: #012017;
+      --timer-warning-color: #ffd166;
+      --timer-danger-color: #ff7b7b;
+    }
+
+    [data-theme="graphite"] {
+      color-scheme: dark;
+      --bg-main: #11131b;
+      --bg-panel: rgba(23, 26, 36, 0.92);
+      --text-primary: #f5f7ff;
+      --text-secondary: #9aa5bf;
+      --accent: #7fa1ff;
+      --accent-alt: #5066ff;
+      --warning: #ffd27a;
+      --danger: #ff7d92;
+      --success: #63ffc8;
+      --panel-border: rgba(127, 161, 255, 0.2);
+      --header-gradient: linear-gradient(135deg, rgba(127, 161, 255, 0.22), rgba(11, 16, 27, 0.95));
+      --panel-blur: rgba(14, 17, 26, 0.85);
+      --announcement-bg: rgba(127, 161, 255, 0.18);
+      --announcement-border: rgba(127, 161, 255, 0.36);
+      --schedule-bg: rgba(20, 24, 34, 0.78);
+      --schedule-item-bg: rgba(127, 161, 255, 0.14);
+      --schedule-item-hover: rgba(127, 161, 255, 0.24);
+      --schedule-item-active: rgba(127, 161, 255, 0.33);
+      --button-primary: linear-gradient(135deg, #7fa1ff, #5066ff);
+      --button-danger: linear-gradient(135deg, #ff7d92, #ff5674);
+      --button-ghost: rgba(244, 246, 255, 0.08);
+      --shadow: 0 20px 46px rgba(7, 10, 21, 0.65);
+      --progress-track: rgba(127, 161, 255, 0.22);
+      --modal-overlay: rgba(7, 11, 22, 0.78);
+      --file-loader-bg: rgba(127, 161, 255, 0.08);
+      --file-loader-border: rgba(127, 161, 255, 0.28);
+      --select-focus-border: rgba(127, 161, 255, 0.6);
+      --select-focus-bg: rgba(127, 161, 255, 0.18);
+      --secondary-btn-bg: rgba(233, 236, 250, 0.9);
+      --secondary-btn-color: #101b2f;
+      --primary-btn-text: #ffffff;
+      --file-upload-button-text: #ffffff;
+      --timer-warning-color: #ffb45a;
+      --timer-danger-color: #ff4d6d;
+    }
+
+    [data-theme="sunset"] {
+      color-scheme: light;
+      --bg-main: #fff6f0;
+      --bg-panel: rgba(255, 255, 255, 0.94);
+      --text-primary: #2f1a26;
+      --text-secondary: #83535f;
+      --accent: #ff8a5c;
+      --accent-alt: #ff5c93;
+      --warning: #c27a0e;
+      --danger: #e04655;
+      --success: #2a9d65;
+      --panel-border: rgba(245, 157, 120, 0.2);
+      --header-gradient: linear-gradient(135deg, rgba(255, 138, 92, 0.32), rgba(255, 255, 255, 0.96));
+      --panel-blur: rgba(255, 249, 244, 0.85);
+      --announcement-bg: rgba(255, 138, 92, 0.16);
+      --announcement-border: rgba(255, 138, 92, 0.3);
+      --schedule-bg: rgba(255, 240, 232, 0.82);
+      --schedule-item-bg: rgba(255, 138, 92, 0.14);
+      --schedule-item-hover: rgba(255, 138, 92, 0.22);
+      --schedule-item-active: rgba(255, 138, 92, 0.3);
+      --button-primary: linear-gradient(135deg, #ff8a5c, #ff5c93);
+      --button-danger: linear-gradient(135deg, #ff6f6f, #ff8f8f);
+      --button-ghost: rgba(47, 26, 38, 0.12);
+      --shadow: 0 16px 42px rgba(239, 142, 128, 0.24);
+      --progress-track: rgba(255, 138, 92, 0.2);
+      --modal-overlay: rgba(82, 40, 52, 0.52);
+      --file-loader-bg: rgba(47, 26, 38, 0.06);
+      --file-loader-border: rgba(47, 26, 38, 0.14);
+      --select-focus-border: rgba(255, 138, 92, 0.6);
+      --select-focus-bg: rgba(255, 138, 92, 0.18);
+      --secondary-btn-bg: rgba(47, 26, 38, 0.12);
+      --secondary-btn-color: #2f1a26;
+      --primary-btn-text: #ffffff;
+      --file-upload-button-text: #ffffff;
+      --timer-warning-color: #ff8a3d;
+      --timer-danger-color: #ff3150;
+    }
+
+    [data-theme="aurora"] {
+      color-scheme: dark;
+      --bg-main: #041427;
+      --bg-panel: rgba(9, 26, 43, 0.92);
+      --text-primary: #e7f4ff;
+      --text-secondary: #85a3c5;
+      --accent: #4cc9f0;
+      --accent-alt: #b5179e;
+      --warning: #f9d770;
+      --danger: #ff5e88;
+      --success: #6fffd6;
+      --panel-border: rgba(76, 201, 240, 0.2);
+      --header-gradient: linear-gradient(135deg, rgba(76, 201, 240, 0.28), rgba(11, 22, 40, 0.92));
+      --panel-blur: rgba(7, 20, 34, 0.86);
+      --announcement-bg: rgba(76, 201, 240, 0.16);
+      --announcement-border: rgba(76, 201, 240, 0.3);
+      --schedule-bg: rgba(11, 28, 46, 0.74);
+      --schedule-item-bg: rgba(76, 201, 240, 0.14);
+      --schedule-item-hover: rgba(76, 201, 240, 0.24);
+      --schedule-item-active: rgba(76, 201, 240, 0.32);
+      --button-primary: linear-gradient(135deg, #4cc9f0, #b5179e);
+      --button-danger: linear-gradient(135deg, #ff7b8f, #ff4d6d);
+      --button-ghost: rgba(231, 244, 255, 0.1);
+      --shadow: 0 20px 48px rgba(4, 17, 32, 0.62);
+      --progress-track: rgba(76, 201, 240, 0.22);
+      --modal-overlay: rgba(4, 14, 30, 0.78);
+      --file-loader-bg: rgba(76, 201, 240, 0.08);
+      --file-loader-border: rgba(76, 201, 240, 0.26);
+      --select-focus-border: rgba(76, 201, 240, 0.6);
+      --select-focus-bg: rgba(76, 201, 240, 0.16);
+      --secondary-btn-bg: rgba(76, 201, 240, 0.18);
+      --secondary-btn-color: #e7f4ff;
+      --primary-btn-text: #ffffff;
+      --file-upload-button-text: #ffffff;
+      --timer-warning-color: #f6c945;
+      --timer-danger-color: #ff4d7a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; min-height: 100%; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 15% 20%, var(--bg-main), #000 60%);
+      color: var(--text-primary);
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      padding: var(--outer-padding);
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      overflow: hidden;
+      transition: background 0.6s ease, color 0.4s ease;
+    }
+
+    .page-shell {
+      width: min(100%, 3440px);
+      height: calc(100vh - (2 * var(--outer-padding)));
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 1.4vw, 1.8rem);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    header {
+      position: sticky;
+      top: var(--outer-padding);
+      z-index: 20;
+      background: var(--header-gradient);
+      border-radius: 22px;
+      padding: clamp(1.15rem, 1.6vw, 2.1rem);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: clamp(1rem, 1.4vw, 1.6rem);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--panel-border);
+      transition: background 0.6s ease, border 0.4s ease;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="420" height="420" viewBox="0 0 420 420"><g fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"><path d="M0,70 Q210,0 420,70"/><path d="M0,140 Q210,70 420,140"/><path d="M0,210 Q210,140 420,210"/><path d="M0,280 Q210,210 420,280"/><path d="M0,350 Q210,280 420,350"/></g></svg>') center/cover;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .branding {
+      grid-column: span 12;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      z-index: 1;
+    }
+
+    .school-name {
+      font-size: clamp(1.2rem, 2.1vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .subject-block {
+      grid-column: span 4;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .subject-label {
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-size: 0.74rem;
+      color: var(--text-secondary);
+    }
+
+    #subjectDisplay {
+      font-size: clamp(1.9rem, 2.8vw, 3.1rem);
+      line-height: 1.2;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .timer-block {
+      grid-column: span 4;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+
+    #countdown {
+      font-size: clamp(2.8rem, 4.1vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      text-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+      transition: color 0.4s ease;
+    }
+
+    .timer-warning {
+      color: var(--timer-warning-color) !important;
+      animation: timerBlinkSoft 1.2s ease-in-out infinite;
+    }
+
+    .timer-danger {
+      color: var(--timer-danger-color) !important;
+      animation: timerBlinkFast 0.7s ease-in-out infinite;
+    }
+
+    @keyframes timerBlinkSoft {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.985); }
+    }
+
+    @keyframes timerBlinkFast {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.975); }
+    }
+
+    #statusLabel {
+      font-size: 0.95rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .meta-block {
+      grid-column: span 4;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-width: 0;
+    }
+
+    .meta-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .meta-value {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .content-scroll {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: 1fr;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.9fr);
+      gap: clamp(1rem, 1.6vw, 2rem);
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    main {
+      background: var(--bg-panel);
+      border-radius: 24px;
+      padding: clamp(1.4rem, 2vw, 2.1rem);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.2rem, 1.8vw, 2rem);
+      border: 1px solid var(--panel-border);
+      backdrop-filter: blur(8px);
+      min-height: 0;
+    }
+
+    #alertBanner {
+      border-radius: 16px;
+      padding: 1.05rem 1.3rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      text-align: center;
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #alertBanner.show { display: block; }
+    #alertBanner.warning { background: rgba(247, 215, 116, 0.18); color: var(--warning); }
+    #alertBanner.danger { background: rgba(255, 123, 114, 0.2); color: var(--danger); animation: alertPulse 1.3s ease-in-out infinite; }
+    #alertBanner.final { background: rgba(63, 185, 80, 0.2); color: var(--success); animation: none; }
+
+    @keyframes alertPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.035); }
+    }
+
+    .panels-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1.15fr 0.75fr;
+      gap: clamp(1rem, 1.5vw, 1.8rem);
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    .panel {
+      background: var(--panel-blur);
+      border-radius: 20px;
+      padding: clamp(1rem, 1.6vw, 1.7rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+      border: 1px solid var(--panel-border);
+      min-height: 0;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .progress-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .progress-bar {
+      height: 18px;
+      border-radius: 999px;
+      background: var(--progress-track);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+      transition: width 0.6s ease;
+    }
+
+    .progress-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .announcement-board {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      overflow: hidden;
+    }
+
+    .announcement-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding-right: 0.5rem;
+    }
+
+    .announcement-card {
+      background: var(--announcement-bg);
+      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--announcement-border);
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .announcement-card header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .announcement-card h3 {
+      margin: 0;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .announcement-card time {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.12em;
+    }
+
+    .announcement-card p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .schedule-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-height: 370px;
+      overflow-y: auto;
+      padding-right: 0.4rem;
+    }
+
+    .schedule-group {
+      background: var(--schedule-bg);
+      border-radius: 18px;
+      border: 1px solid var(--panel-border);
+      padding: 0.9rem 1.1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .schedule-date-heading {
+      margin: 0;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .schedule-item {
+      padding: 0.75rem 1rem;
+      border-radius: 15px;
+      background: var(--schedule-item-bg);
+      border: 1px solid transparent;
+      display: grid;
+      gap: 0.3rem;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .schedule-item:hover {
+      background: var(--schedule-item-hover);
+      transform: translateY(-1px);
+    }
+
+    .schedule-item.active {
+      border-color: var(--accent);
+      background: var(--schedule-item-active);
+      box-shadow: 0 12px 24px rgba(88, 101, 242, 0.25);
+    }
+
+    .schedule-item .time {
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .schedule-item .subject {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .schedule-item .venue {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    aside.control-dock {
+      background: var(--panel-blur);
+      border-radius: 22px;
+      padding: clamp(1.4rem, 2vw, 2rem);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      border: 1px solid var(--panel-border);
+      position: sticky;
+      top: calc(var(--outer-padding) + 0.4rem);
+      max-height: calc(100vh - (2 * var(--outer-padding)) - 0.8rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      min-height: 0;
+    }
+
+    .control-dock h2 {
+      margin: 0;
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    label {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    select,
+    input[type="text"],
+    input[type="number"],
+    input[type="time"],
+    input[type="date"],
+    textarea {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 0.7rem 0.95rem;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border 0.3s ease, background 0.3s ease, color 0.3s ease;
+    }
+
+    select:focus,
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--select-focus-border);
+      background: var(--select-focus-bg);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 160px;
+    }
+
+    .duration-row,
+    .time-range-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .time-range-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    button {
+      border: none;
+      border-radius: 16px;
+      padding: 0.8rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: var(--button-primary);
+      box-shadow: 0 12px 24px rgba(88, 166, 255, 0.28);
+      color: var(--primary-btn-text);
+    }
+
+    .btn-secondary {
+      background: var(--secondary-btn-bg);
+      color: var(--secondary-btn-color);
+    }
+
+    .btn-danger {
+      background: var(--button-danger);
+      color: var(--primary-btn-text);
+    }
+
+    .btn-ghost {
+      background: var(--button-ghost);
+      color: var(--text-primary);
+    }
+
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .file-loader {
+      display: grid;
+      gap: 0.6rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      background: var(--file-loader-bg);
+      border: 1px dashed var(--file-loader-border);
+    }
+
+    .file-loader input[type="file"] {
+      border: none;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    .file-loader input[type="file"]::-webkit-file-upload-button {
+      border: none;
+      border-radius: 14px;
+      padding: 0.6rem 1rem;
+      margin-right: 0.6rem;
+      background: var(--button-primary);
+      color: var(--file-upload-button-text);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(88, 166, 255, 0.28);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: var(--modal-overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 999;
+      padding: 1rem;
+    }
+
+    .modal.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-card {
+      width: min(100%, 540px);
+      background: var(--bg-panel);
+      border-radius: 22px;
+      padding: clamp(1.4rem, 2vw, 2rem);
+      border: 1px solid var(--panel-border);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+      display: grid;
+      gap: 1.1rem;
+      position: relative;
+    }
+
+    .modal-card h3 {
+      margin: 0;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.85rem;
+      right: 0.85rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.15rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .modal-close:hover {
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 1440px) {
+      .panels-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .announcement-board {
+        grid-column: span 1;
+      }
+
+      .schedule-panel {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .page-shell {
+        height: auto;
+      }
+
+      body {
+        overflow: auto;
+      }
+
+      header {
+        grid-template-columns: repeat(6, 1fr);
+        position: static;
+      }
+
+      .branding,
+      .subject-block,
+      .timer-block,
+      .meta-block {
+        grid-column: span 6;
+      }
+
+      .content-scroll {
+        overflow: auto;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panels-grid {
+        grid-template-columns: 1fr;
+      }
+
+      aside.control-dock {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(0.8rem, 2.4vw, 1.1rem);
+      }
+
+      .branding,
+      .subject-block,
+      .timer-block,
+      .meta-block {
+        grid-column: span 4;
+      }
+
+      .duration-row,
+      .time-range-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .time-range-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #statusLabel {
+        letter-spacing: 0.2em;
+      }
+    }
+  
+      .simple-table { width: 100%; border-collapse: collapse; }
+      .simple-table th, .simple-table td { border: 1px solid var(--border-color, #3a3d44); padding: 6px 8px; }
+      .simple-table th { background: var(--panel-elevated, #12151c); }
+      .report-section textarea { width: 100%; min-height: 80px; }
+    </style>
+<script src="https://puc.poecdn.net/authenticated_preview_page/syncedState.bd4eeeb8e8e02052ee92.js"></script></head>
+
+<body>
+  <div class="page-shell">
+    <header>
+      <div class="branding">
+        <span class="school-name">Methodist College</span>
+      </div>
+      <div class="subject-block">
+        <span class="subject-label">Subject / 科目</span>
+        <div id="subjectDisplay">Awaiting Selection</div>
+      </div>
+      <div class="timer-block">
+        <div id="countdown">00:00:00</div>
+        <div id="statusLabel">Awaiting Start</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-item">
+          <span class="meta-label">Exam Date</span>
+          <span class="meta-value" id="scheduledDateDisplay">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Scheduled Time</span>
+          <span class="meta-value" id="scheduledTimeDisplay">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Venue</span>
+          <span class="meta-value" id="venueDisplay">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Actual Start</span>
+          <span class="meta-value" id="actualStartDisplay">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Estimated End</span>
+          <span class="meta-value" id="estimatedEndDisplay">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Current Time</span>
+          <span class="meta-value" id="currentTimeDisplay">—</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-scroll">
+      <div class="content-grid">
+        <main>
+          <div id="alertBanner"></div>
+
+          <div class="panels-grid">
+            <section class="panel" id="progressPanel">
+              <h2>Exam Progress / 考試進度</h2>
+              <div class="progress-wrapper">
+                <div class="progress-bar">
+                  <div class="progress-fill" id="progressFill"></div>
+                </div>
+              </div>
+              <div class="progress-meta">
+                <div class="meta-item">
+                  <span class="meta-label">Elapsed</span>
+                  <span class="meta-value" id="elapsedDisplay">—</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Remaining</span>
+                  <span class="meta-value" id="remainingDisplay">—</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Exam State</span>
+                  <span class="meta-value" id="stateDisplay">Idle</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Last Update</span>
+                  <span class="meta-value" id="lastUpdateDisplay">—</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel announcement-board">
+              <h2>Announcements / 通告</h2>
+              <div class="announcement-list" id="announcementList">
+                <div class="meta-value" id="announcementEmpty" style="font-style: italic; color: var(--text-secondary);">
+                  No announcements yet. / 暫無通告
+                </div>
+              </div>
+            </section>
+
+            <section class="panel schedule-panel">
+              <h2>Exam Schedule / 考試時間表</h2>
+              <div class="schedule-list" id="scheduleList">
+                <div class="meta-value" style="font-style: italic; color: var(--text-secondary);">
+                  No timetable loaded yet. Please import the Excel file from the right.
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <aside class="control-dock">
+          <h2>Invigilator Console 監考控制台</h2>
+
+          <label>
+            Color Scheme / 主題色彩
+            <select id="themeSelector">
+              <option value="midnight">Midnight Navy</option>
+              <option value="dawn">Dawn Lilac</option>
+              <option value="emerald">Emerald Mist</option>
+              <option value="graphite">Graphite Slate</option>
+              <option value="sunset">Sunset Bloom</option>
+              <option value="aurora">Aurora Borealis</option>
+            </select>
+          </label>
+
+          <div class="file-loader">
+            <label for="excelInput">Load Excel Timetable / 載入 Excel 行程</label>
+            <input type="file" id="excelInput" accept=".xlsx,.xls,.csv">
+            <span style="font-size: 0.76rem; color: var(--text-secondary);">
+              Use the same structure as <strong>exam_html.xlsx</strong>.
+            </span>
+          </div>
+
+          
+    <div class="file-loader">
+      <label for="namelistInput">Load Namelist / 載入 名單</label>
+      <input type="file" id="namelistInput" accept=".xlsx,.xls,.csv">
+      <span style="font-size: 0.76rem; color: var(--text-secondary);">
+        Expected headers: <strong>Class</strong>, <strong>Class No</strong>, <strong>Name</strong>
+      </span>
+    </div>
+
+    <div style="font-size: 0.8rem; color: var(--text-secondary);" id="namelistStatus">
+      No namelist has been loaded yet.
+    </div>
+
+    <div style="font-size: 0.8rem; color: var(--text-secondary);" id="loadStatus">
+            No timetable has been loaded yet.
+          </div>
+
+          <form id="consoleForm" autocomplete="off">
+            <label>
+              Select Exam / 選擇考試
+              <select id="examSelector">
+                <option value="">— Select from schedule —</option>
+              </select>
+            </label>
+
+            <label>
+              Subject / 科目 (manual input allowed)
+              <input type="text" id="subjectInput" placeholder="e.g. ENG 1 Reading">
+            </label>
+
+            <label>
+              Venue / 考場
+              <input type="text" id="venueInput" placeholder="e.g. L Hall / E41">
+            </label>
+
+            <label>
+              Custom Scheduled Date / 日期
+              <input type="date" id="customDateInput">
+            </label>
+
+            <label>
+              Custom Scheduled Time Range / 時段
+              <div class="time-range-row">
+                <input type="time" id="customStartInput">
+                <input type="time" id="customEndInput">
+              </div>
+            </label>
+
+            <label>
+              Optional Note: Scheduled Start Time
+              <input type="time" id="startTimeInput">
+            </label>
+
+            <label>
+              Exam Duration (H : M : S) / 考試時長
+              <div class="duration-row">
+                <input type="number" id="hoursInput" min="0" max="12" placeholder="0">
+                <input type="number" id="minutesInput" min="0" max="59" placeholder="0">
+                <input type="number" id="secondsInput" min="0" max="59" placeholder="0">
+              </div>
+            </label>
+
+            <div class="button-row">
+              <button type="button" class="btn-primary" id="startButton">Start</button>
+              <button type="button" class="btn-secondary" id="pauseButton" disabled="">Pause</button>
+              <button type="button" class="btn-secondary" id="resumeButton" disabled="">Resume</button>
+              <button type="button" class="btn-danger" id="resetButton">Reset</button>
+            </div>
+
+            <button type="button" class="btn-ghost" id="clearScheduleButton">Clear Schedule / 清空時間表</button>
+            <button type="button" class="btn-ghost" id="announcementButton">New Announcement / 發佈通告</button>
+<button type="button" class="btn-secondary" id="reportButton">Invigilation Report / 監考報告</button>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="announcementModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalButton" aria-label="Close">×</button>
+      <h3>Create Announcement / 建立通告</h3>
+      <label>
+        Title / 標題
+        <input type="text" id="announcementTitleInput" placeholder="e.g. Reminder">
+      </label>
+      <label>
+        Message / 內容
+        <textarea id="announcementMessageInput" placeholder="Write the announcement details here..."></textarea>
+      </label>
+      <div class="button-row" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <button type="button" class="btn-secondary" id="postAnnouncementButton">Post / 發佈</button>
+        <button type="button" class="btn-ghost" id="clearAnnouncementsButton">Clear All / 清除全部</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script>
+    (function () {
+      const safeStorage = (() => {
+        try {
+          localStorage.setItem("__theme_test__", "ok");
+          localStorage.removeItem("__theme_test__");
+          return localStorage;
+        } catch {
+          return null;
+        }
+      })();
+
+      const themeSelector = document.getElementById("themeSelector");
+      const storedTheme = safeStorage ? safeStorage.getItem("invigilationTheme") : null;
+      document.documentElement.setAttribute("data-theme", storedTheme || "midnight");
+      themeSelector.value = storedTheme || "midnight";
+      themeSelector.addEventListener("change", (event) => {
+        const theme = event.target.value;
+        document.documentElement.setAttribute("data-theme", theme);
+        if (safeStorage) safeStorage.setItem("invigilationTheme", theme);
+      });
+
+      const controlDock = document.querySelector(".control-dock");
+      controlDock.addEventListener(
+        "wheel",
+        (event) => {
+          const { scrollTop, scrollHeight, clientHeight } = controlDock;
+          const delta = event.deltaY;
+
+          if (clientHeight >= scrollHeight) return;
+
+          if (
+            (delta > 0 && scrollTop + clientHeight >= scrollHeight) ||
+            (delta < 0 && scrollTop <= 0)
+          ) {
+            event.preventDefault();
+          }
+
+          event.stopPropagation();
+        },
+        { passive: false }
+      );
+
+      let touchStartY = 0;
+      controlDock.addEventListener(
+        "touchstart",
+        (event) => {
+          if (event.touches.length === 1) touchStartY = event.touches[0].clientY;
+        },
+        { passive: true }
+      );
+
+      controlDock.addEventListener(
+        "touchmove",
+        (event) => {
+          if (event.touches.length !== 1) return;
+
+          const { scrollTop, scrollHeight, clientHeight } = controlDock;
+          const touchCurrentY = event.touches[0].clientY;
+          const deltaY = touchStartY - touchCurrentY;
+
+          if (clientHeight >= scrollHeight) return;
+
+          if (
+            (deltaY > 0 && scrollTop + clientHeight >= scrollHeight) ||
+            (deltaY < 0 && scrollTop <= 0)
+          ) {
+            event.preventDefault();
+          }
+
+          event.stopPropagation();
+        },
+        { passive: false }
+      );
+
+      const subjectDisplay = document.getElementById("subjectDisplay");
+      const venueDisplay = document.getElementById("venueDisplay");
+      const countdownDisplay = document.getElementById("countdown");
+      const statusLabel = document.getElementById("statusLabel");
+      const scheduledDateDisplay = document.getElementById("scheduledDateDisplay");
+      const scheduledTimeDisplay = document.getElementById("scheduledTimeDisplay");
+      const actualStartDisplay = document.getElementById("actualStartDisplay");
+      const estimatedEndDisplay = document.getElementById("estimatedEndDisplay");
+      const currentTimeDisplay = document.getElementById("currentTimeDisplay");
+      const elapsedDisplay = document.getElementById("elapsedDisplay");
+      const remainingDisplay = document.getElementById("remainingDisplay");
+      const stateDisplay = document.getElementById("stateDisplay");
+      const lastUpdateDisplay = document.getElementById("lastUpdateDisplay");
+      const alertBanner = document.getElementById("alertBanner");
+      const progressFill = document.getElementById("progressFill");
+      const scheduleList = document.getElementById("scheduleList");
+      const loadStatus = document.getElementById("loadStatus");
+
+      const subjectInput = document.getElementById("subjectInput");
+      const venueInput = document.getElementById("venueInput");
+      const customDateInput = document.getElementById("customDateInput");
+      const customStartInput = document.getElementById("customStartInput");
+      const customEndInput = document.getElementById("customEndInput");
+      const startTimeInput = document.getElementById("startTimeInput");
+      const hoursInput = document.getElementById("hoursInput");
+      const minutesInput = document.getElementById("minutesInput");
+      const secondsInput = document.getElementById("secondsInput");
+      const examSelector = document.getElementById("examSelector");
+      const excelInput = document.getElementById("excelInput");
+      const clearScheduleButton = document.getElementById("clearScheduleButton");
+      const startButton = document.getElementById("startButton");
+      const pauseButton = document.getElementById("pauseButton");
+      const resumeButton = document.getElementById("resumeButton");
+      const resetButton = document.getElementById("resetButton");
+
+      const announcementButton = document.getElementById("announcementButton");
+      const announcementModal = document.getElementById("announcementModal");
+      const closeModalButton = document.getElementById("closeModalButton");
+      const postAnnouncementButton = document.getElementById("postAnnouncementButton");
+      const clearAnnouncementsButton = document.getElementById("clearAnnouncementsButton");
+      const announcementTitleInput = document.getElementById("announcementTitleInput");
+      const announcementMessageInput = document.getElementById("announcementMessageInput");
+      const announcementList = document.getElementById("announcementList");
+      const announcementEmpty = document.getElementById("announcementEmpty");
+
+      const timeFormatter = new Intl.DateTimeFormat("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+        timeZone: "Asia/Hong_Kong"
+      });
+
+      const WEEKDAYS_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const WEEKDAYS_ZH = ["週日", "週一", "週二", "週三", "週四", "週五", "週六"];
+      const MONTHS_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+      const DEFAULT_TIMETABLE_FILE = "timetableconsole.xlsx";
+const DEFAULT_NAMELIST_FILE = "namelist_all.xlsx";
+
+      const state = {
+        countdownInterval: null,
+        clockInterval: null,
+        examStartTimestamp: null,
+        examEndTimestamp: null,
+        totalDurationMs: 0,
+        remainingMs: 0,
+        examState: "idle",
+        selectedExamId: null,
+        fifteenAlertEligible: false,
+        fifteenAlertShown: false,
+        fiveAlertShown: false,
+        examSchedule: [],
+        datasetLabel: "Not loaded"
+      };
+
+      function pad(num) {
+        return String(num).padStart(2, "0");
+      }
+
+      function splitYMD(dateStr) {
+        if (!dateStr) return null;
+        const parts = dateStr.split("-").map(Number);
+        if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+        return { y: parts[0], m: parts[1], d: parts[2] };
+      }
+
+      function formatDateLabel(dateStr) {
+        const parts = splitYMD(dateStr);
+        if (!parts) return dateStr || "—";
+        const { y, m, d } = parts;
+        const date = new Date(Date.UTC(y, m - 1, d));
+        const weekdayIndex = date.getUTCDay();
+        const weekdayEn = WEEKDAYS_EN[weekdayIndex];
+        const weekdayZh = WEEKDAYS_ZH[weekdayIndex];
+        const monthName = MONTHS_EN[m - 1] || pad(m);
+        return `${weekdayEn} (${weekdayZh}) · ${pad(d)} ${monthName} ${y}`;
+      }
+
+      function formatDuration(ms) {
+        const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+      }
+
+      function formatHumanDuration(ms) {
+        const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        const pieces = [];
+        if (hours > 0) pieces.push(`${hours} hr${hours !== 1 ? "s" : ""}`);
+        if (hours > 0 || minutes > 0) pieces.push(`${minutes} min`);
+        pieces.push(`${seconds} s`);
+        return pieces.join(" ");
+      }
+
+      function normalizeTime(str) {
+        if (!str) return "";
+        const match = String(str).trim().match(/^(\d{1,2})(?::(\d{2}))?$/);
+        if (!match) return "";
+        const hours = Number(match[1]);
+        const minutes = Number(match[2] || "0");
+        if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) return "";
+        return `${pad(hours)}:${pad(minutes)}`;
+      }
+
+      function parseTimeRange(raw) {
+        if (!raw) return { startTime: "", endTime: "" };
+        const sanitized = raw.replace(/[–—]/g, "-").replace(/\s*to\s*/i, "-");
+        const parts = sanitized.split("-").map(normalizeTime);
+        if (parts[0] && parts[1]) return { startTime: parts[0], endTime: parts[1] };
+        if (parts[0]) return { startTime: parts[0], endTime: "" };
+        return { startTime: "", endTime: "" };
+      }
+
+      function computeDurationMinutes(startTime, endTime) {
+        if (!startTime || !endTime) return 0;
+        const [sh, sm] = startTime.split(":").map(Number);
+        const [eh, em] = endTime.split(":").map(Number);
+        const startMinutes = sh * 60 + sm;
+        let endMinutes = eh * 60 + em;
+        if (endMinutes < startMinutes) endMinutes += 24 * 60;
+        return endMinutes - startMinutes;
+      }
+
+      function showAlert(message, type = "warning", autoHideMs = 60000) {
+        alertBanner.textContent = message;
+        alertBanner.className = `show ${type}`;
+        if (type !== "final") {
+          window.setTimeout(() => {
+            if (alertBanner.textContent === message) hideAlert();
+          }, autoHideMs);
+        }
+      }
+
+      function hideAlert() {
+        alertBanner.className = "";
+        alertBanner.textContent = "";
+        alertBanner.style.display = "none";
+        requestAnimationFrame(() => {
+          alertBanner.style.display = "";
+        });
+      }
+
+      function setCountdownColor(stateName) {
+        countdownDisplay.classList.remove("timer-warning", "timer-danger");
+        if (stateName === "warning") countdownDisplay.classList.add("timer-warning");
+        if (stateName === "danger") countdownDisplay.classList.add("timer-danger");
+      }
+
+      function updateCurrentClock() {
+        currentTimeDisplay.textContent = timeFormatter.format(new Date());
+      }
+
+      function setExamState(newState) {
+        state.examState = newState;
+        stateDisplay.textContent = newState.charAt(0).toUpperCase() + newState.slice(1);
+        statusLabel.textContent =
+          newState === "running"
+            ? "Exam In Progress"
+            : newState === "paused"
+            ? "Paused"
+            : newState === "completed"
+            ? "Exam Ended"
+            : "Awaiting Start";
+      }
+
+      function updateDisplays() {
+        if (!state.examStartTimestamp || !state.totalDurationMs) return;
+        const now = Date.now();
+        const elapsed = Math.max(0, now - state.examStartTimestamp);
+        const remaining = Math.max(0, state.examEndTimestamp - now);
+        elapsedDisplay.textContent = formatHumanDuration(elapsed);
+        remainingDisplay.textContent = formatHumanDuration(remaining);
+        lastUpdateDisplay.textContent = timeFormatter.format(new Date());
+        const progress = Math.min(100, (elapsed / state.totalDurationMs) * 100);
+        progressFill.style.width = `${progress}%`;
+      }
+
+      function updateTimer() {
+        if (!state.examEndTimestamp) return;
+        const now = Date.now();
+        state.remainingMs = state.examEndTimestamp - now;
+
+        if (state.remainingMs <= 0) {
+          clearInterval(state.countdownInterval);
+          state.countdownInterval = null;
+          countdownDisplay.textContent = "00:00:00";
+          setCountdownColor("normal");
+          setExamState("completed");
+          showAlert("Exam period complete / 考試時間完結", "final", 15000);
+          progressFill.style.width = "100%";
+          remainingDisplay.textContent = "0 s";
+          return;
+        }
+
+        countdownDisplay.textContent = formatDuration(state.remainingMs);
+        updateDisplays();
+
+        if (state.remainingMs <= 5 * 60 * 1000) {
+          if (!state.fiveAlertShown) {
+            state.fiveAlertShown = true;
+            showAlert("Final 5 minutes / 剩餘五分鐘", "danger");
+          }
+          setCountdownColor("danger");
+        } else if (state.remainingMs <= 15 * 60 * 1000) {
+          if (state.fifteenAlertEligible && !state.fifteenAlertShown) {
+            state.fifteenAlertShown = true;
+            showAlert("15 minutes remaining / 剩餘十五分鐘", "warning");
+          }
+          setCountdownColor("warning");
+        } else {
+          setCountdownColor("normal");
+        }
+      }
+
+      function startExam() {
+        const hours = parseInt(hoursInput.value, 10) || 0;
+        const minutes = parseInt(minutesInput.value, 10) || 0;
+        const seconds = parseInt(secondsInput.value, 10) || 0;
+        state.totalDurationMs = ((hours * 3600) + (minutes * 60) + seconds) * 1000;
+
+        if (state.totalDurationMs <= 0) {
+          window.alert("Please enter a valid exam duration.");
+          return;
+        }
+
+        state.fifteenAlertEligible = state.totalDurationMs >= 15 * 60 * 1000;
+        state.fifteenAlertShown = false;
+        state.fiveAlertShown = false;
+        hideAlert();
+        setCountdownColor("normal");
+
+        state.examStartTimestamp = Date.now();
+        state.examEndTimestamp = state.examStartTimestamp + state.totalDurationMs;
+
+        countdownDisplay.textContent = formatDuration(state.totalDurationMs);
+        actualStartDisplay.textContent = timeFormatter.format(new Date(state.examStartTimestamp));
+        estimatedEndDisplay.textContent = timeFormatter.format(new Date(state.examEndTimestamp));
+
+        clearInterval(state.countdownInterval);
+        state.countdownInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+
+        if (!state.clockInterval) state.clockInterval = setInterval(updateCurrentClock, 1000);
+        updateCurrentClock();
+
+        setExamState("running");
+        startButton.disabled = true;
+        pauseButton.disabled = false;
+        resumeButton.disabled = true;
+      }
+
+      function pauseExam() {
+        if (!state.countdownInterval) return;
+        clearInterval(state.countdownInterval);
+        state.countdownInterval = null;
+        if (state.examEndTimestamp) state.remainingMs = state.examEndTimestamp - Date.now();
+        setExamState("paused");
+        pauseButton.disabled = true;
+        resumeButton.disabled = false;
+      }
+
+      function resumeExam() {
+        if (!state.remainingMs || state.remainingMs <= 0) return;
+        state.examStartTimestamp = Date.now();
+        state.examEndTimestamp = state.examStartTimestamp + state.remainingMs;
+        estimatedEndDisplay.textContent = timeFormatter.format(new Date(state.examEndTimestamp));
+        state.countdownInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+        setExamState("running");
+        pauseButton.disabled = false;
+        resumeButton.disabled = true;
+      }
+
+      function resetExam(preserveSelection = false) {
+        clearInterval(state.countdownInterval);
+        state.countdownInterval = null;
+        state.examStartTimestamp = null;
+        state.examEndTimestamp = null;
+        state.totalDurationMs = 0;
+        state.remainingMs = 0;
+        state.fifteenAlertEligible = false;
+        state.fifteenAlertShown = false;
+        state.fiveAlertShown = false;
+
+        countdownDisplay.textContent = "00:00:00";
+        setCountdownColor("normal");
+        hideAlert();
+        elapsedDisplay.textContent = "—";
+        remainingDisplay.textContent = "—";
+        lastUpdateDisplay.textContent = "—";
+        progressFill.style.width = "0%";
+        actualStartDisplay.textContent = "—";
+        estimatedEndDisplay.textContent = "—";
+
+        startButton.disabled = false;
+        pauseButton.disabled = true;
+        resumeButton.disabled = true;
+        setExamState("idle");
+
+        updateScheduledDisplays();
+
+        if (!preserveSelection) {
+          state.selectedExamId = null;
+          examSelector.value = "";
+          highlightSchedule(null);
+        }
+      }
+
+      function updateScheduledDisplays() {
+        scheduledDateDisplay.textContent = customDateInput.value ? formatDateLabel(customDateInput.value) : "—";
+        const startVal = customStartInput.value;
+        const endVal = customEndInput.value;
+        scheduledTimeDisplay.textContent = startVal && endVal ? `${startVal} - ${endVal}` : (startVal || endVal || "—");
+      }
+
+      function highlightSchedule(examId) {
+        document.querySelectorAll(".schedule-item").forEach((item) => {
+          item.classList.toggle("active", item.dataset.examId === examId);
+        });
+      }
+
+      function populateExamSelector() {
+        examSelector.innerHTML = '<option value="">— Select from schedule —</option>';
+        state.examSchedule.forEach((exam) => {
+          const option = document.createElement("option");
+          option.value = exam.id;
+          const timeLabel = exam.startTime && exam.endTime ? `${exam.startTime}-${exam.endTime}` : (exam.startTime || "Time TBC");
+          option.textContent = `${formatDateLabel(exam.date)} • ${timeLabel} • ${exam.subject || "Untitled"}`;
+          examSelector.appendChild(option);
+        });
+      }
+
+      function renderSchedule() {
+        scheduleList.innerHTML = "";
+        if (!state.examSchedule.length) {
+          scheduleList.innerHTML =
+            '<div class="meta-value" style="font-style: italic; color: var(--text-secondary);">No timetable loaded yet. Please import the Excel file from the right.</div>';
+          return;
+        }
+
+        const grouped = state.examSchedule.reduce((map, exam) => {
+          const key = exam.date || "Date TBC";
+          if (!map.has(key)) map.set(key, []);
+          map.get(key).push(exam);
+          return map;
+        }, new Map());
+
+        Array.from(grouped.keys())
+          .sort()
+          .forEach((date) => {
+            const groupElement = document.createElement("div");
+            groupElement.className = "schedule-group";
+
+            const heading = document.createElement("h3");
+            heading.className = "schedule-date-heading";
+            heading.textContent = date === "Date TBC" ? "Date TBC" : formatDateLabel(date);
+            groupElement.appendChild(heading);
+
+            grouped.get(date).forEach((exam) => {
+              const item = document.createElement("div");
+              item.className = "schedule-item";
+              item.dataset.examId = exam.id;
+
+              const time = document.createElement("div");
+              time.className = "time";
+              time.textContent = exam.startTime && exam.endTime ? `${exam.startTime} - ${exam.endTime}` : (exam.startTime || "Time TBC");
+              item.appendChild(time);
+
+              const subject = document.createElement("div");
+              subject.className = "subject";
+              subject.textContent = exam.subject || "Untitled";
+              item.appendChild(subject);
+
+              const venue = document.createElement("div");
+              venue.className = "venue";
+              venue.textContent = `Venue: ${exam.venue || "TBC"}`;
+              item.appendChild(venue);
+
+              item.addEventListener("click", () => {
+                if (state.examState === "running") {
+                  const proceed = window.confirm("Timer is running. Switching exams will reset it. Continue?");
+                  if (!proceed) return;
+                }
+                examSelector.value = exam.id;
+                applyExamDetails(exam.id);
+              });
+
+              groupElement.appendChild(item);
+            });
+
+            scheduleList.appendChild(groupElement);
+          });
+
+        highlightSchedule(state.selectedExamId);
+      }
+
+      function updateLoadStatus() {
+        const count = state.examSchedule.length;
+        loadStatus.textContent = count
+          ? `Loaded: ${state.datasetLabel} (${count} exam${count === 1 ? "" : "s"})`
+          : "No timetable has been loaded yet.";
+      }
+
+      function setExamSchedule(data, label = "Loaded file") {
+        state.examSchedule = data
+          .map((exam, index) => ({
+            ...exam,
+            id: exam.id || `exam-${Date.now()}-${index}`
+          }))
+          .sort((a, b) => {
+            const dateA = new Date(`${a.date || "2100-01-01"}T${a.startTime || "00:00"}`);
+            const dateB = new Date(`${b.date || "2100-01-01"}T${b.startTime || "00:00"}`);
+            return dateA - dateB;
+          });
+
+        state.datasetLabel = label;
+        state.selectedExamId = null;
+        populateExamSelector();
+        renderSchedule();
+        resetExam(false);
+        subjectDisplay.textContent = "Awaiting Selection";
+        scheduledDateDisplay.textContent = "—";
+        scheduledTimeDisplay.textContent = "—";
+        venueDisplay.textContent = "—";
+        updateLoadStatus();
+      }
+
+      function applyExamDetails(examId) {
+        const exam = state.examSchedule.find((entry) => entry.id === examId);
+        if (!exam) return;
+
+        if (state.examState === "running") {
+          const proceed = window.confirm("Timer is running. Switching exams will reset it. Continue?");
+          if (!proceed) {
+            examSelector.value = state.selectedExamId || "";
+            return;
+          }
+        }
+
+        state.selectedExamId = examId;
+
+        subjectDisplay.textContent = exam.subject || "Awaiting Selection";
+        subjectInput.value = exam.subject || "";
+        venueDisplay.textContent = exam.venue || "—";
+        venueInput.value = exam.venue || "";
+
+        customDateInput.value = exam.date || "";
+        customStartInput.value = exam.startTime || "";
+        customEndInput.value = exam.endTime || "";
+        startTimeInput.value = exam.startTime || "";
+
+        updateScheduledDisplays();
+
+        if (exam.durationMinutes) {
+          hoursInput.value = Math.floor(exam.durationMinutes / 60);
+          minutesInput.value = exam.durationMinutes % 60;
+          secondsInput.value = 0;
+        } else {
+          hoursInput.value = "";
+          minutesInput.value = "";
+          secondsInput.value = "";
+        }
+
+        scheduledDateDisplay.textContent = exam.date ? formatDateLabel(exam.date) : "—";
+        scheduledTimeDisplay.textContent = exam.startTime && exam.endTime ? `${exam.startTime} - ${exam.endTime}` : (exam.startTime || exam.endTime || "—");
+
+        resetExam(true);
+        highlightSchedule(examId);
+      }
+
+      function parseExcelDate(value) {
+        if (value == null || value === "") return "";
+
+        if (value instanceof Date && !Number.isNaN(value.getTime())) {
+          return `${value.getFullYear()}-${pad(value.getMonth() + 1)}-${pad(value.getDate())}`;
+        }
+
+        if (typeof value === "number" && Number.isFinite(value)) {
+          const parsed = XLSX.SSF.parse_date_code(value);
+          if (parsed) {
+            return `${parsed.y}-${pad(parsed.m)}-${pad(parsed.d)}`;
+          }
+        }
+
+        if (typeof value === "string") {
+          const trimmed = value.trim();
+          if (!trimmed) return "";
+
+          if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(trimmed)) {
+            const [y, m, d] = trimmed.split("-").map(Number);
+            return `${y}-${pad(m)}-${pad(d)}`;
+          }
+
+          if (/^\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}$/.test(trimmed)) {
+            const [dVal, mVal, yRaw] = trimmed.split(/[\/\-]/);
+            const yVal = yRaw.length === 2 ? Number(`20${yRaw}`) : Number(yRaw);
+            return `${yVal}-${pad(Number(mVal))}-${pad(Number(dVal))}`;
+          }
+
+          const parsedDate = new Date(trimmed);
+          if (!Number.isNaN(parsedDate.getTime())) {
+            return `${parsedDate.getFullYear()}-${pad(parsedDate.getMonth() + 1)}-${pad(parsedDate.getDate())}`;
+          }
+        }
+
+        return "";
+      }
+
+      function parseTimeValue(raw) {
+        if (raw == null || raw === "") return "";
+        if (typeof raw === "number" && Number.isFinite(raw)) {
+          const parsed = XLSX.SSF.parse_date_code(raw);
+          if (parsed) {
+            const totalMinutes = parsed.H * 60 + parsed.M + Math.round(parsed.S / 60);
+            const hours = Math.floor(totalMinutes / 60) % 24;
+            const minutes = totalMinutes % 60;
+            return `${pad(hours)}:${pad(minutes)}`;
+          }
+        }
+
+        const sanitized = String(raw).trim().replace(/[–—]/g, "-").replace(/\s*to\s*/i, "-");
+        if (sanitized.includes("-")) return sanitized;
+        return normalizeTime(sanitized);
+      }
+
+      function parseExcelRows(rows) {
+        if (!rows.length) return [];
+        const dataRows = rows.slice(1);
+        const parsed = [];
+        let lastDate = "";
+
+        dataRows.forEach((row, rowIndex) => {
+          if (!row || !row.length) return;
+
+          const maybeDate = parseExcelDate(row[0]);
+          if (maybeDate) lastDate = maybeDate;
+
+          for (let offset = 1; offset < row.length; offset += 3) {
+            const timeCell = parseTimeValue(row[offset]);
+            const subjectCell = row[offset + 1];
+            const venueCell = row[offset + 2];
+
+            const subject = subjectCell ? String(subjectCell).trim() : "";
+            const venue = venueCell ? String(venueCell).trim() : "";
+
+            if (!subject && !timeCell && !venue) continue;
+
+            let startTime = "";
+            let endTime = "";
+            if (timeCell) {
+              if (timeCell.includes("-")) {
+                const range = parseTimeRange(timeCell);
+                startTime = range.startTime;
+                endTime = range.endTime;
+              } else {
+                startTime = normalizeTime(timeCell);
+              }
+            }
+
+            parsed.push({
+              id: `excel-${Date.now()}-${rowIndex}-${offset}`,
+              subject,
+              date: maybeDate || lastDate || "",
+              startTime,
+              endTime,
+              durationMinutes: startTime && endTime ? computeDurationMinutes(startTime, endTime) : 0,
+              venue: venue || "—"
+            });
+          }
+        });
+
+        return parsed.filter((entry) => entry.subject || entry.startTime || entry.endTime || entry.venue);
+      }
+
+      function importTimetableFromArrayBuffer(arrayBuffer, label = "Loaded file") {
+        const workbook = XLSX.read(new Uint8Array(arrayBuffer), { type: "array", cellDates: true });
+        const sheetName = workbook.SheetNames.find((name) => name.toLowerCase().includes("sheet2")) || workbook.SheetNames[0];
+        if (!sheetName) {
+          throw new Error("No worksheet found in the file.");
+        }
+
+        const worksheet = workbook.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: true, blankrows: false });
+        const parsed = parseExcelRows(rows);
+
+        if (!parsed.length) {
+          throw new Error("No exam entries were detected. Please check the Excel structure.");
+        }
+
+        setExamSchedule(parsed, label);
+      }
+
+      excelInput.addEventListener("change", (event) => {
+        const file = event.target.files ? event.target.files[0] : null;
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          try {
+            importTimetableFromArrayBuffer(e.target.result, file.name);
+            showAlert(`Timetable loaded: ${file.name}`, "final", 12000);
+          } catch (error) {
+            console.error(error);
+            window.alert(`Excel import failed: ${error.message || error}`);
+          } finally {
+            excelInput.value = "";
+          }
+        };
+        reader.onerror = () => window.alert("File reading error. Please try again.");
+        reader.readAsArrayBuffer(file);
+      });
+
+      async function autoLoadDefaultTimetable() {
+        try {
+          const response = await fetch(DEFAULT_TIMETABLE_FILE, { cache: "no-store" });
+          if (!response.ok) {
+            console.warn(`Default timetable not loaded (status ${response.status}).`);
+            return;
+          }
+
+          const arrayBuffer = await response.arrayBuffer();
+          importTimetableFromArrayBuffer(arrayBuffer, DEFAULT_TIMETABLE_FILE);
+          showAlert(`Timetable loaded: ${DEFAULT_TIMETABLE_FILE}`, "final", 12000);
+        } catch (error) {
+          console.error("Failed to auto-load default timetable.", error);
+        }
+      }
+
+      clearScheduleButton.addEventListener("click", () => {
+        setExamSchedule([], "Not loaded");
+        showAlert("Timetable cleared.", "warning", 8000);
+      });
+
+      examSelector.addEventListener("change", (event) => {
+        applyExamDetails(event.target.value);
+      });
+
+      startButton.addEventListener("click", startExam);
+      pauseButton.addEventListener("click", pauseExam);
+      resumeButton.addEventListener("click", resumeExam);
+      resetButton.addEventListener("click", () => resetExam(false));
+
+      subjectInput.addEventListener("input", () => {
+        subjectDisplay.textContent = subjectInput.value.trim() || "Awaiting Selection";
+        if (subjectInput.value.trim()) {
+          state.selectedExamId = null;
+          examSelector.value = "";
+          highlightSchedule(null);
+        }
+      });
+
+      venueInput.addEventListener("input", () => {
+        venueDisplay.textContent = venueInput.value.trim() || "—";
+      });
+
+      function handleScheduleInputs() {
+        updateScheduledDisplays();
+        if (customStartInput.value && customEndInput.value) {
+          const minutes = computeDurationMinutes(customStartInput.value, customEndInput.value);
+          if (minutes > 0) {
+            hoursInput.value = Math.floor(minutes / 60);
+            minutesInput.value = minutes % 60;
+            secondsInput.value = 0;
+          }
+        }
+        state.selectedExamId = null;
+        examSelector.value = "";
+        highlightSchedule(null);
+      }
+
+      customDateInput.addEventListener("input", handleScheduleInputs);
+      customStartInput.addEventListener("input", handleScheduleInputs);
+      customEndInput.addEventListener("input", handleScheduleInputs);
+      startTimeInput.addEventListener("input", updateScheduledDisplays);
+
+      announcementButton.addEventListener("click", () => {
+        announcementModal.classList.add("show");
+        setTimeout(() => announcementTitleInput.focus(), 60);
+      });
+
+      function closeAnnouncementModal() {
+        announcementModal.classList.remove("show");
+        announcementTitleInput.value = "";
+        announcementMessageInput.value = "";
+      }
+
+      closeModalButton.addEventListener("click", closeAnnouncementModal);
+      announcementModal.addEventListener("click", (event) => {
+        if (event.target === announcementModal) closeAnnouncementModal();
+      });
+
+      function renderAnnouncement(title, message) {
+        const card = document.createElement("article");
+        card.className = "announcement-card";
+
+        const cardHeader = document.createElement("header");
+        const heading = document.createElement("h3");
+        heading.textContent = title || "Announcement";
+        const timeStamp = document.createElement("time");
+        const now = new Date();
+        timeStamp.dateTime = now.toISOString();
+        timeStamp.textContent = timeFormatter.format(now);
+        cardHeader.appendChild(heading);
+        cardHeader.appendChild(timeStamp);
+
+        const body = document.createElement("p");
+        body.textContent = message;
+
+        card.appendChild(cardHeader);
+        card.appendChild(body);
+        announcementList.prepend(card);
+      }
+
+      postAnnouncementButton.addEventListener("click", () => {
+        const title = announcementTitleInput.value.trim();
+        const message = announcementMessageInput.value.trim();
+        if (!message) {
+          window.alert("Please enter announcement content.");
+          return;
+        }
+        if (announcementEmpty && announcementEmpty.parentElement) {
+          announcementEmpty.remove();
+        }
+        renderAnnouncement(title, message);
+        closeAnnouncementModal();
+      });
+
+      clearAnnouncementsButton.addEventListener("click", () => {
+        announcementList.innerHTML = "";
+        if (announcementEmpty) announcementList.appendChild(announcementEmpty);
+      });
+
+      function updateLoadAndSchedule() {
+        populateExamSelector();
+        renderSchedule();
+        updateLoadStatus();
+      }
+
+      autoLoadDefaultTimetable();
+      updateLoadAndSchedule();
+      updateCurrentClock();
+      state.clockInterval = setInterval(updateCurrentClock, 1000);
+    })();
+  </script>
+
+
+
+  <div class="modal" id="reportModal" role="dialog" aria-modal="true" style="display:none;">
+    <div class="modal-card" style="max-width: 980px;">
+      <button class="modal-close" id="closeReportModal" aria-label="Close">×</button>
+      <h3>Invigilation Report / 監考報告</h3>
+      
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.75rem;">
+        <label>Subject / 科目
+          <input type="text" id="reportSubject">
+        </label>
+        <label>Paper / 試卷
+          <input type="text" id="reportPaper" placeholder="e.g. Paper 1">
+        </label>
+        <label>Date / 日期
+          <input type="text" id="reportDate">
+        </label>
+        <label>Scheduled Time / 時間
+          <input type="text" id="reportTime">
+        </label>
+        <label>Venue / 考場
+          <input type="text" id="reportVenue">
+        </label>
+        <label>Chief Invigilator / 主監考
+          <input type="text" id="reportChief">
+        </label>
+        <label>Other Invigilators / 其他監考 (comma-separated)
+          <input type="text" id="reportOthers" placeholder="Name A, Name B">
+        </label>
+        <label>Actual Start (if different) / 實際開始
+          <input type="text" id="reportActualStart" placeholder="HH:MM">
+        </label>
+        <label>Actual End / 實際結束
+          <input type="text" id="reportActualEnd" placeholder="HH:MM">
+        </label>
+      </div>
+
+      <hr/>
+
+      <div class="report-section">
+        <h4 style="margin: 0.2rem 0;">1) Candidate without student card / 未帶學生證</h4>
+        <div id="noCardTable"></div>
+        <button class="btn-ghost" data-add-row="noCard">+ Add Row</button>
+      </div>
+
+      <div class="report-section">
+        <h4 style="margin: 0.2rem 0;">2) Absent / 缺席</h4>
+        <div id="absentTable"></div>
+        <button class="btn-ghost" data-add-row="absent">+ Add Row</button>
+      </div>
+
+      <div class="report-section">
+        <h4 style="margin: 0.2rem 0;">3) Late / 遲到</h4>
+        <div id="lateTable"></div>
+        <button class="btn-ghost" data-add-row="late">+ Add Row</button>
+      </div>
+
+      <div class="report-section">
+        <h4 style="margin: 0.2rem 0;">4) Improper uniform / 校服不合規</h4>
+        <div id="uniformTable"></div>
+        <button class="btn-ghost" data-add-row="uniform">+ Add Row</button>
+      </div>
+
+      <div class="report-section">
+        <h4 style="margin: 0.2rem 0;">5) Washroom trips / 上洗手間</h4>
+        <div id="washroomTable"></div>
+        <button class="btn-ghost" data-add-row="washroom">+ Add Row</button>
+      </div>
+
+      <div class="report-section">
+        <h4 style="margin: 0.2rem 0;">6) Irregularity (if any) / 违规情況</h4>
+        <textarea id="irregularityNotes" placeholder="Describe any irregularities (candidate no., description, action taken)..."></textarea>
+      </div>
+
+      <div class="button-row" style="grid-template-columns: repeat(3, minmax(0,1fr));">
+        <button class="btn-secondary" id="saveReportJson">Download JSON</button>
+        <button class="btn-secondary" id="printReport">Print / Save PDF</button>
+        <button class="btn-ghost" id="clearReport">Clear</button>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+(() => {
+  // --- Table section definitions (include Class/Class No./Name auto) ---
+  const sections = {
+    noCard: { mount: document.getElementById("noCardTable"), columns: ["Class","Class No.","Name","Seat","Candidate No.","Remarks"] },
+    absent: { mount: document.getElementById("absentTable"), columns: ["Class","Class No.","Name","Seat","Candidate No."] },
+    late: { mount: document.getElementById("lateTable"), columns: ["Class","Class No.","Name","Seat","Candidate No.","Arrival Time","Minutes Late"] },
+    uniform: { mount: document.getElementById("uniformTable"), columns: ["Class","Class No.","Name","Issue","Candidate No."] },
+    washroom: { mount: document.getElementById("washroomTable"), columns: ["Class","Class No.","Name","Out Time","In Time","Candidate No."] }
+  };
+
+  // --- Namelist parsing and autoload ---
+  function normalizeHeader(h) { return String(h || "").trim().toLowerCase().replace(/\s+/g, " "); }
+  function parseNamelistRows(rows) {
+    if (!rows || !rows.length) return { index: new Map(), meta: {} };
+    const header = (rows[0] || []).map(normalizeHeader);
+    const findIdx = (names) => {
+      for (let i = 0; i < header.length; i++) {
+        const h = header[i];
+        if (names.some(n => h === n || h.includes(n))) return i;
+      }
+      return -1;
+    };
+    const classIdx = findIdx(["class"]);
+    const numberIdx = findIdx(["class no", "class no.", "no", "number"]);
+    const nameIdx = findIdx(["name", "student name"]);
+    const index = new Map();
+    for (let r = 1; r < rows.length; r++) {
+      const row = rows[r] || [];
+      const cls = String(row[classIdx] || "").trim();
+      const no = String(row[numberIdx] || "").trim();
+      const name = String(row[nameIdx] || "").trim();
+      if (!cls || !no || !name) continue;
+      const key = (cls + "|" + no).toLowerCase();
+      if (!index.has(key)) index.set(key, name);
+    }
+    return { index, meta: { classKey: classIdx, numberKey: numberIdx, nameKey: nameIdx } };
+  }
+
+  async function importNamelistFromArrayBuffer(arrayBuffer) {
+    try {
+      const workbook = XLSX.read(new Uint8Array(arrayBuffer), { type: "array", cellDates: true });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1, raw: true, blankrows: false });
+      const parsed = parseNamelistRows(rows);
+      window.__namelistIndex = parsed.index;
+      // Build class -> numbers map
+      window.__classToNos = {};
+      for (const key of parsed.index.keys()) {
+        const [cls, no] = key.split("|");
+        if (!window.__classToNos[cls]) window.__classToNos[cls] = new Set();
+        window.__classToNos[cls].add(no);
+      }
+      window.__classList = Object.keys(window.__classToNos).sort();
+      Object.keys(window.__classToNos).forEach(k => window.__classToNos[k] = Array.from(window.__classToNos[k]).sort());
+      // Status
+      const count = parsed.index.size;
+      const text = count ? `Namelist loaded (${count} students indexed)` : "Namelist could not be parsed.";
+      const el = document.getElementById("namelistStatus");
+      if (el) el.textContent = text;
+    } catch (err) {
+      console.error(err);
+      const el = document.getElementById("namelistStatus");
+      if (el) el.textContent = "Failed to load namelist.";
+    }
+  }
+
+  async function autoLoadDefaultNamelist() {
+    try {
+      const res = await fetch(DEFAULT_NAMELIST_FILE, { cache: "no-store" });
+      if (!res.ok) return;
+      const buf = await res.arrayBuffer();
+      await importNamelistFromArrayBuffer(buf);
+    } catch (e) {
+      console.warn("No default namelist found.", e);
+    }
+  }
+
+  const namelistInput = document.getElementById("namelistInput");
+  if (namelistInput) {
+    namelistInput.addEventListener("change", async (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const buf = await file.arrayBuffer();
+      await importNamelistFromArrayBuffer(buf);
+    });
+  }
+  autoLoadDefaultNamelist();
+
+  // --- Report UI helpers ---
+  function buildTable(section) {
+    const table = document.createElement("table");
+    table.className = "simple-table";
+    const thead = document.createElement("thead");
+    const tr = document.createElement("tr");
+    section.columns.forEach(col => {
+      const th = document.createElement("th");
+      th.textContent = col;
+      tr.appendChild(th);
+    });
+    const thDel = document.createElement("th"); thDel.textContent = "";
+    tr.appendChild(thDel);
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+    section.mount.innerHTML = "";
+    section.mount.appendChild(table);
+  }
+
+  function addRow(sectionKey, defaultValues = []) {
+    const section = sections[sectionKey];
+    const tbody = section.mount.querySelector("tbody");
+    const tr = document.createElement("tr");
+
+    section.columns.forEach((col, idx) => {
+      const td = document.createElement("td");
+      if (col === "Class") {
+        const sel = document.createElement("select");
+        sel.innerHTML = `<option value="">—</option>` + (window.__classList || []).map(c => `<option value="${c}">${c}</option>`).join("");
+        if (defaultValues[idx]) sel.value = defaultValues[idx];
+        td.appendChild(sel);
+      } else if (col === "Class No.") {
+        const sel = document.createElement("select");
+        const clsSel = tr.querySelector("select");
+        const cls = clsSel ? clsSel.value : "";
+        const nos = (window.__classToNos && window.__classToNos[cls]) || [];
+        sel.innerHTML = `<option value="">—</option>` + nos.map(n => `<option value="${n}">${n}</option>`).join("");
+        if (defaultValues[idx]) sel.value = defaultValues[idx];
+        td.appendChild(sel);
+      } else if (col === "Name") {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = col;
+        input.readOnly = true;
+        if (defaultValues[idx]) input.value = defaultValues[idx];
+        td.appendChild(input);
+      } else {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = col;
+        if (defaultValues[idx]) input.value = defaultValues[idx];
+        td.appendChild(input);
+      }
+      tr.appendChild(td);
+    });
+
+    const tdDel = document.createElement("td");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn-ghost";
+    btn.textContent = "✕";
+    btn.addEventListener("click", () => tr.remove());
+    tdDel.appendChild(btn);
+    tr.appendChild(tdDel);
+
+    const classSel = tr.querySelector("select");
+    const numberSel = tr.querySelectorAll("select")[1];
+    const nameInput = tr.querySelector('input[placeholder="Name"]');
+
+    function refreshNumbers() {
+      if (!numberSel) return;
+      const cls = classSel?.value || "";
+      const nos = (window.__classToNos && window.__classToNos[cls]) || [];
+      const cur = numberSel.value;
+      numberSel.innerHTML = `<option value="">—</option>` + nos.map(n => `<option value="${n}">${n}</option>`).join("");
+      if (nos.includes(cur)) numberSel.value = cur;
+      refreshName();
+    }
+
+    function refreshName() {
+      if (!nameInput) return;
+      const cls = classSel?.value || "";
+      const num = numberSel?.value || "";
+      const key = (cls + "|" + num).toLowerCase();
+      const nm = (window.__namelistIndex && window.__namelistIndex.get(key)) || "";
+      nameInput.value = nm;
+    }
+
+    classSel?.addEventListener("change", refreshNumbers);
+    numberSel?.addEventListener("change", refreshName);
+    refreshNumbers();
+    tbody.appendChild(tr);
+  }
+
+  function collectTable(sectionKey) {
+    const section = sections[sectionKey];
+    const rows = [];
+    const trs = Array.from(section.mount.querySelectorAll("tbody tr"));
+    trs.forEach(tr => {
+      const inputs = Array.from(tr.querySelectorAll("td input, td select"));
+      if (!inputs.length) return;
+      const row = {};
+      section.columns.forEach((col, idx) => {
+        const el = inputs[idx];
+        const val = el ? (el.value || "").trim() : "";
+        row[col] = val;
+      });
+      const valuesJoined = Object.values(row).join("").trim();
+      if (valuesJoined) rows.push(row);
+    });
+    return rows;
+  }
+
+  function prefillBasics() {
+    const byId = (id) => document.getElementById(id);
+    const subject = byId("subjectInput")?.value || byId("subjectDisplay")?.textContent || "";
+    const venue = byId("venueInput")?.value || byId("venueDisplay")?.textContent || "";
+    const date = byId("scheduledDateDisplay")?.textContent || "";
+    const time = byId("scheduledTimeDisplay")?.textContent || "";
+    const actualStart = byId("actualStartDisplay")?.textContent || "";
+
+    byId("reportSubject").value = (subject || "").replace(/^Awaiting Selection$/i, "").trim();
+    byId("reportVenue").value = (venue || "").replace(/^—$/, "").trim();
+    byId("reportDate").value = (date || "").replace(/^—$/, "").trim();
+    byId("reportTime").value = (time || "").replace(/^—$/, "").trim();
+    byId("reportActualStart").value = (actualStart || "").replace(/^—$/, "").trim();
+  }
+
+  function clearReport() {
+    document.getElementById("reportChief").value = "";
+    document.getElementById("reportOthers").value = "";
+    document.getElementById("reportPaper").value = "";
+    document.getElementById("irregularityNotes").value = "";
+    Object.keys(sections).forEach(k => buildTable(sections[k]));
+    Object.keys(sections).forEach(k => addRow(k));
+  }
+
+  function getReportData() {
+    return {
+      basic: {
+        subject: document.getElementById("reportSubject").value.trim(),
+        paper: document.getElementById("reportPaper").value.trim(),
+        date: document.getElementById("reportDate").value.trim(),
+        time: document.getElementById("reportTime").value.trim(),
+        venue: document.getElementById("reportVenue").value.trim(),
+        chiefInvigilator: document.getElementById("reportChief").value.trim(),
+        otherInvigilators: document.getElementById("reportOthers").value.trim(),
+        actualStart: document.getElementById("reportActualStart").value.trim(),
+        actualEnd: document.getElementById("reportActualEnd").value.trim()
+      },
+      noCard: collectTable("noCard"),
+      absent: collectTable("absent"),
+      late: collectTable("late"),
+      improperUniform: collectTable("uniform"),
+      washroom: collectTable("washroom"),
+      irregularity: document.getElementById("irregularityNotes").value.trim()
+    };
+  }
+
+  function download(filename, text) {
+    const blob = new Blob([text], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 0);
+  }
+
+  function makePrintableHtml(data) {
+    const esc = (s) => (s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    function rowsToHtml(title, rows, cols) {
+      if (!rows || !rows.length) return "";
+      const ths = cols.map(c => `<th>${esc(c)}</th>`).join("");
+      const trs = rows.map(r => `<tr>${cols.map(c => `<td>${esc(r[c] || "")}</td>`).join("")}</tr>`).join("");
+      return `<h4>${esc(title)}</h4><table><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
+    }
+
+    return `<!doctype html><html><head><meta charset="utf-8">
+      <title>Invigilation Report</title>
+      <style>
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; padding: 24px; }
+        h2, h3, h4 { margin: 0 0 8px; }
+        .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; margin-bottom: 12px; }
+        .meta p { margin: 0 0 6px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; }
+        th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+        th { background: #f4f4f4; }
+        @page { size: A4; margin: 16mm; }
+        @media print { .no-print { display: none !important; } }
+      
+      .simple-table { width: 100%; border-collapse: collapse; }
+      .simple-table th, .simple-table td { border: 1px solid var(--border-color, #3a3d44); padding: 6px 8px; }
+      .simple-table th { background: var(--panel-elevated, #12151c); }
+      .report-section textarea { width: 100%; min-height: 80px; }
+    </style>
+    </head><body>
+      <h2>Invigilation Report</h2>
+      <div class="meta two">
+        <p><strong>Subject:</strong> ${esc(data.basic.subject)}</p>
+        <p><strong>Paper:</strong> ${esc(data.basic.paper)}</p>
+        <p><strong>Date:</strong> ${esc(data.basic.date)}</p>
+        <p><strong>Time:</strong> ${esc(data.basic.time)}</p>
+        <p><strong>Venue:</strong> ${esc(data.basic.venue)}</p>
+        <p><strong>Chief Invigilator:</strong> ${esc(data.basic.chiefInvigilator)}</p>
+        <p><strong>Other Invigilators:</strong> ${esc(data.basic.otherInvigilators)}</p>
+        <p><strong>Actual Start:</strong> ${esc(data.basic.actualStart)}</p>
+        <p><strong>Actual End:</strong> ${esc(data.basic.actualEnd)}</p>
+      </div>
+      <h3>Summary</h3>
+      <p><strong>No Student Card:</strong> ${data.noCard.length} &nbsp; | &nbsp;
+         <strong>Absent:</strong> ${data.absent.length} &nbsp; | &nbsp;
+         <strong>Late:</strong> ${data.late.length} &nbsp; | &nbsp;
+         <strong>Uniform Issues:</strong> ${data.improperUniform.length} &nbsp; | &nbsp;
+         <strong>Washroom Trips:</strong> ${data.washroom.length}</p>
+
+      ${rowsToHtml("Candidates without Student Card", data.noCard, sections.noCard.columns)}
+      ${rowsToHtml("Absent", data.absent, sections.absent.columns)}
+      ${rowsToHtml("Late", data.late, sections.late.columns)}
+      ${rowsToHtml("Improper Uniform", data.improperUniform, sections.uniform.columns)}
+      ${rowsToHtml("Washroom Trips", data.washroom, sections.washroom.columns)}
+
+      <h3>Irregularity</h3>
+      <p>${esc(data.irregularity)}</p>
+
+      <div class="no-print" style="margin-top: 16px;"><button onclick="window.print()">Print</button></div>
+    </body></html>`;
+  }
+
+  function openPrintWindow(html) {
+    const w = window.open("", "_blank");
+    if (!w) return alert("Popup blocked. Please allow popups for print preview.");
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+  }
+
+  // Build section tables & wire modal
+  const reportModal = document.getElementById("reportModal");
+  if (reportModal) {
+    Object.values(sections).forEach(buildTable);
+
+    reportModal.addEventListener("click", (ev) => {
+      const btn = ev.target.closest("button[data-add-row]");
+      if (!btn) return;
+      addRow(btn.getAttribute("data-add-row"));
+    });
+
+    const openBtn = document.getElementById("reportButton");
+    const closeBtn = document.getElementById("closeReportModal");
+    const saveJsonBtn = document.getElementById("saveReportJson");
+    const printBtn = document.getElementById("printReport");
+    const clearBtn = document.getElementById("clearReport");
+
+    function openModal() { reportModal.style.display = "block"; }
+    function closeModal() { reportModal.style.display = "none"; }
+
+    openBtn?.addEventListener("click", () => { prefillBasics(); clearReport(); openModal(); });
+    closeBtn?.addEventListener("click", closeModal);
+    reportModal.addEventListener("click", (e) => { if (e.target === reportModal) closeModal(); });
+
+    saveJsonBtn?.addEventListener("click", () => {
+      const data = getReportData();
+      const subject = (data.basic.subject || "exam").replace(/\W+/g,"_");
+      download(`invigilation_report_${subject}.json`, JSON.stringify(data, null, 2));
+    });
+
+    printBtn?.addEventListener("click", () => {
+      const data = getReportData();
+      openPrintWindow(makePrintableHtml(data));
+    });
+
+    clearBtn?.addEventListener("click", () => {
+      if (confirm("Clear all fields in this report?")) clearReport();
+    });
+  }
+})();
+</script>
+
+</body></html>
